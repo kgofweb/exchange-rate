@@ -10,7 +10,7 @@ const amountSending = document.getElementById('amount__sending')
 
 function getExchangeRate() {
   // API key
-  let apiKey = '22152b19b5da360f0b31aa21'
+  let apiKey = 'da8f1ba92578cbd11252e612'
   // Get select input
   const selectOneVal = currencyOne.value
   const selectTwoVal = currencyTwo.value
