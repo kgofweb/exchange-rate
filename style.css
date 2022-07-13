@@ -1,0 +1,29 @@
+body {
+  background: linear-gradient(#2c2c54, #8c7ae6);
+  height: 100vh;
+}
+
+h2 {
+  color: #fff;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+h2 span {
+  color: #eb3b5a;
+}
+
+img {
+  max-width: 21px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.icon {
+  font-size: 1.4rem;
+  cursor: pointer;
+}
