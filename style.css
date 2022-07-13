@@ -28,9 +28,13 @@ img {
 }
 
 .title {
-  font-size: .830rem;
+  font-size: .9rem;
 }
 
 .time {
-  font-size: .800rem;
+  font-size: .860rem;
+}
+
+.sub__title {
+  font-size: .890rem;
 }

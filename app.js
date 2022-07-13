@@ -6,6 +6,7 @@ const resultBox = document.getElementById('result')
 const swipeBtn = document.getElementById('swipe')
 const timeBoxLast = document.getElementById('timeLast')
 const timeBoxNext = document.getElementById('timeNext')
+const amountSending = document.getElementById('amount__sending')
 
 function getExchangeRate() {
   // API key
@@ -13,23 +14,24 @@ function getExchangeRate() {
   // Get select input
   const selectOneVal = currencyOne.value
   const selectTwoVal = currencyTwo.value
+  
 
   fetch(`https://v6.exchangerate-api.com/v6/${apiKey}/latest/${selectOneVal}`)
   .then(response => response.json())
   .then(data => {
     const rate = data.conversion_rates[selectTwoVal]
 
-    console.log(data);
-
     resultBox.innerHTML = `<b>1</b> ${selectOneVal} = <b>${rate}</b> ${selectTwoVal}`
 
     amountTwo.value = (amountOne.value * rate).toFixed(2)
 
-    const timeLast = data.time_last_update_utc
-    const timeNext = data.time_next_update_utc
-
-    timeBoxLast.innerText = timeLast
-    timeBoxNext.innerText = timeNext
+    if (selectOneVal == 'XOF') {
+      const myString = (parseInt(amountOne.value) + 2000);
+      amountSending.innerHTML = `${myString} FCFA`
+      amountSending.style.display = 'flex'
+    } else {
+      amountSending.style.display = 'none'
+    }
   })
   .catch(() => {
     resultBox.innerHTML = 'Une erreur est survenue...'
