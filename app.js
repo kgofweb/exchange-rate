@@ -26,8 +26,9 @@ function getExchangeRate() {
     amountTwo.value = (amountOne.value * rate).toFixed(2)
 
     if (selectOneVal == 'XOF') {
-      const myString = (parseInt(amountOne.value) + 2000);
-      amountSending.innerHTML = `${myString} FCFA`
+      const myString = (parseInt(amountOne.value) * 0.02);
+      const total = (parseInt(amountOne.value) + myString)
+      amountSending.innerHTML = `${total} FCFA`
       amountSending.style.display = 'flex'
     } else {
       amountSending.style.display = 'none'
