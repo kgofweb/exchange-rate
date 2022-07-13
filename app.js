@@ -3,6 +3,7 @@ const currencyTwo = document.getElementById('currency__two')
 const amountOne = document.getElementById('amount__one')
 const amountTwo = document.getElementById('amount__two')
 const resultBox = document.getElementById('result')
+const refreshBtn = document.getElementById('refresh')
 
 function getExchangeRate() {
   // API key
@@ -16,11 +17,11 @@ function getExchangeRate() {
   .then(data => {
     const rate = data.conversion_rates[selectTwoVal]
 
-    // console.log(data);
+    console.log(data);
 
     resultBox.innerHTML = `<b>1</b> ${selectOneVal} = <b>${rate}</b> ${selectTwoVal}`
 
-    amountTwo.value = (amountOne.value * rate)
+    amountTwo.value = (amountOne.value * rate).toFixed(2)
   })
   .catch(() => {
     resultBox.innerHTML = 'Une erreur est survenue...'
@@ -34,5 +35,12 @@ amountOne.addEventListener('input', getExchangeRate)
 currencyTwo.addEventListener('change', getExchangeRate)
 amountTwo.addEventListener('input', getExchangeRate)
 
+refreshBtn.addEventListener('click', () => {
+  const change = currencyOne.value
+  currencyOne.value = currencyTwo.value
+  currencyTwo.value = change
+
+  getExchangeRate()
+})
 
 getExchangeRate()
