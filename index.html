@@ -33,7 +33,7 @@
         <span class="text-start text-primary">Vers</span>
         <div class="input-group">
           <input type="text" class="form-control" id="amount__two" style="width: 13rem;">
-          <select class="form-select" style="width: 5rem;"  id="currency__two">
+          <select class="form-select" style="width: 5rem;" id="currency__two">
             <option value="XOF">CFA</option>
             <option value="RUB" selected>RUB</option>
             <option value="EUR">EUR</option>
@@ -47,28 +47,15 @@
         </div>
 
         <div class="sub__title mt-4">
-          <p class="text-center">Pour les envois <b>CIV</b> vers <b>RUS</b> les frais sont de <b class="text-primary">2%</b></p>
+          <p>Pour les envois <b>CIV</b> vers <b>RUS</b> les frais sont de <b class="text-primary">2%</b></p>
 
           <span class="text-warning">Le montant total à transférer sera :</span>
-          <div class="form-control" id="amount__sending">
-            
-          </div>
+          <div class="form-control mb-2" id="amount__sending"></div>
+          <span class="text-success">Votre correspondant recevra :</span>
+          <div class="form-control" id="amount__received"></div>
         </div>
       </div>
     </div>
-
-    <!-- <div class="card">
-      <div class="card-body" style="width: 20rem;">
-        <div class="text-center d-flex flex-column">
-          <div>
-            <span class="title text-primary">Last Update</span> : <span class="mb-2 time" id="timeLast">Chargement...</span>
-          </div>
-          <div>
-            <span class="title text-primary">Next Update</span> : <span class="time" id="timeNext">Chargement...</span>
-          </div>
-        </div>
-      </div>
-    </div> -->
   </div>
   
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
