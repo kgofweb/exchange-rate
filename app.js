@@ -38,7 +38,7 @@ function getExchangeRate() {
 
       // Fix total amount to receive
       amountTwo.value = ((amountOne.value * rate) * 0.98544233).toFixed(2)
-      const finalAmount = amountTwo.value
+      const finalAmount = new Intl.NumberFormat().format(amountTwo.value)
 
       // Insertion to div
       amountSending.innerHTML = `${total} FCFA`
