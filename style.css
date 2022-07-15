@@ -38,3 +38,16 @@ img {
 .sub__title {
   font-size: .890rem;
 }
+
+#amount__sending,
+#amount__received {
+  border: none;
+  border-bottom: 1px solid #ffbb33;
+  border-radius: 0;
+  border-bottom-style: dashed;
+}
+
+#amount__received {
+  border-bottom: 1px solid #007E33;
+  border-bottom-style: dashed;
+}

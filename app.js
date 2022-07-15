@@ -26,6 +26,7 @@ function getExchangeRate() {
   .then(data => {
     // Get rate
     const rate = data.conversion_rates[selectTwoVal]
+    const rateTwo = data.conversion_rates[selectOneVal]
 
     // Insert rate
     resultBox.innerHTML = `<b>1</b> ${selectOneVal} = <b>${rate}</b> ${selectTwoVal}`
@@ -37,17 +38,24 @@ function getExchangeRate() {
       const total = new Intl.NumberFormat().format((parseInt(amountOne.value) + myString))
 
       // Fix total amount to receive
-      amountTwo.value = ((amountOne.value * rate) * 0.98544233).toFixed(2)
-      const finalAmount = new Intl.NumberFormat().format(amountTwo.value)
+      // amountTwo.value = ((amountOne.value * rate) * 0.98544233).toFixed(2)
+      // const finalAmount = new Intl.NumberFormat().format(((amountOne.value * rate) * 0.98544233).toFixed(2))
+      const finalAmount = ((amountOne.value * rate) * 0.98544233).toFixed(2)
 
       // Insertion to div
-      amountSending.innerHTML = `${total} FCFA`
-      amountReceived.innerHTML = `${finalAmount} RUB`
+      amountSending.innerHTML = `<span>${total}</span><span><b>FCFA</b></span>`
+      amountReceived.innerHTML = `<span>${finalAmount}</span><span><b>RUB</b></span>`
       titleInfo.style.display = 'block'
     } else {
       amountTwo.value = (amountOne.value * rate).toFixed(2)
       titleInfo.style.display = 'none'
     }
+
+    // Work with amountTwo
+    // const amountTwoVal = amountTwo.value
+    // // const amountTwoParsed = parseInt(amountTwoVal);
+    // const finalAmountTwo = (amountTwoVal * rateTwo)
+    // console.log(typeof(finalAmountTwo));
   })
   .catch(() => {
     // Set error

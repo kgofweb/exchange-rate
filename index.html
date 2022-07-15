@@ -20,8 +20,8 @@
     <div class="card mb-3">
       <div class="card-body ">
         <!-- Box 1 -->
-        <span class="text-start text-primary">De</span>
-        <div class="input-group mb-2">
+        <!-- <span class="text-start text-primary">De</span> -->
+        <div class="input-group mb-4">
           <input type="text" class="form-control" id="amount__one" value='1' style="width: 13rem;">
           <select class="form-select" style="width: 5rem;" id="currency__one">
             <option value="XOF" selected>CFA</option>
@@ -30,7 +30,7 @@
           </select>
         </div>
         <!-- Box 2 -->
-        <span class="text-start text-primary">Vers</span>
+        <!-- <span class="text-start text-primary">Vers</span> -->
         <div class="input-group">
           <input type="text" class="form-control" id="amount__two" style="width: 13rem;">
           <select class="form-select" style="width: 5rem;" id="currency__two">
@@ -47,12 +47,14 @@
         </div>
 
         <div class="sub__title mt-4">
-          <p>Pour les envois <b>CIV</b> vers <b>RUS</b> les frais sont de <b class="text-primary">2%</b></p>
+          <p>Les envois <b>CIV</b> vers <b>RUS</b>, les frais sont de <b class="text-primary">2%</b>
+          <hr>
+          </p>
 
           <span class="text-warning">Le montant total à transférer sera :</span>
-          <div class="form-control mb-2" id="amount__sending"></div>
+          <div class="form-control mb-3 d-flex justify-content-between" id="amount__sending"></div>
           <span class="text-success">Votre correspondant recevra :</span>
-          <div class="form-control" id="amount__received"></div>
+          <div class="form-control d-flex justify-content-between" id="amount__received"></div>
         </div>
       </div>
     </div>
