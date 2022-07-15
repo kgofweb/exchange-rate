@@ -13,7 +13,7 @@ const titleInfo = document.querySelector('.sub__title')
 
 function getExchangeRate() {
   // API key
-  let apiKey = 'da8f1ba92578cbd11252e612'
+  let apiKey = 'a88a1de11a477bceb207bf61'
   // Get select input
   const selectOneVal = currencyOne.value
   const selectTwoVal = currencyTwo.value
