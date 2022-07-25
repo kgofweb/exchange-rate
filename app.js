@@ -11,9 +11,16 @@ const amountSending = document.getElementById('amount__sending')
 const amountReceived = document.getElementById('amount__received')
 const titleInfo = document.querySelector('.sub__title')
 
+// Event Listner
+currencyOne.addEventListener('change', getExchangeRate)
+amountOne.addEventListener('input', getExchangeRate)
+
+currencyTwo.addEventListener('change', getExchangeRate)
+amountTwo.addEventListener('input', getExchangeRate)
+
 function getExchangeRate() {
   // API key
-  let apiKey = 'a88a1de11a477bceb207bf61'
+  let apiKey = '4a10c600185cf42ee88f6bd7'
   // Get select input
   const selectOneVal = currencyOne.value
   const selectTwoVal = currencyTwo.value
@@ -37,38 +44,31 @@ function getExchangeRate() {
       // Fix Total amount to send
       const total = new Intl.NumberFormat().format((parseInt(amountOne.value) + myString))
 
+      // Insert into input
+      // amountTwo.value = (amountOne.value * rate).toFixed(2)
+
       // Fix total amount to receive
-      // amountTwo.value = ((amountOne.value * rate) * 0.98544233).toFixed(2)
-      // const finalAmount = new Intl.NumberFormat().format(((amountOne.value * rate) * 0.98544233).toFixed(2))
       const finalAmount = ((amountOne.value * rate) * 0.98544233).toFixed(2)
 
       // Insertion to div
       amountSending.innerHTML = `<span>${total}</span><span><b>FCFA</b></span>`
       amountReceived.innerHTML = `<span>${finalAmount}</span><span><b>RUB</b></span>`
       titleInfo.style.display = 'block'
-    } else {
-      amountTwo.value = (amountOne.value * rate).toFixed(2)
-      titleInfo.style.display = 'none'
-    }
+    } else if (selectOneVal == 'RUB') {
+      console.log('Rouble');
+    } 
 
     // Work with amountTwo
-    // const amountTwoVal = amountTwo.value
-    // // const amountTwoParsed = parseInt(amountTwoVal);
-    // const finalAmountTwo = (amountTwoVal * rateTwo)
-    // console.log(typeof(finalAmountTwo));
+    const amountTwoVal = amountTwo.value
+    // const amountTwoParsed = parseInt(amountTwoVal);
+    const finalAmountTwo = (amountTwoVal * rateTwo)
+    console.log(typeof(finalAmountTwo));
   })
   .catch(() => {
     // Set error
     resultBox.innerHTML = 'Une erreur est survenue...'
   })
 }
-
-// Event Listner
-currencyOne.addEventListener('change', getExchangeRate)
-amountOne.addEventListener('input', getExchangeRate)
-
-currencyTwo.addEventListener('change', getExchangeRate)
-amountTwo.addEventListener('input', getExchangeRate)
 
 // Changing rate
 swipeBtn.addEventListener('click', () => {
